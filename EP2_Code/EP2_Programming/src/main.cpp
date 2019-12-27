@@ -62,13 +62,13 @@
 // CONFIGURE LCD
 LiquidCrystal lcd(RS, RW, E, LCD_D4,LCD_D5, LCD_D6, LCD_D7);
 
-// CONFIGURE AND DECLARATION GLOBAL VARIABLE FOR HX711
+// CONFIGURE AND DECLARE GLOBAL VARIABLE FOR HX711
 HX711 scale(HX711_DATA, HX711_SCK);         
 float zero, weight, amount;
 float sample;
 bool sgn_zero;
 
-// CONFIGURE AND DECLARATION GLOBEL VARIABLE FOR MATRIX KEY
+// CONFIGURE AND DECLARE GLOBEL VARIABLE FOR MATRIX KEY
 unsigned char   key = 16, key_value ;
 const byte              col_array[]={COL0,COL1,COL2,COL3};
 const byte              row_array[]={ROW0,ROW1,ROW2,ROW3};
@@ -79,7 +79,7 @@ const unsigned char key_map[4][4] ={    {1, 2, 3, 4},
                                         {13, 14, 15, 16}};
 Keypad keypad =  Keypad(makeKeymap(key_map), row_array, col_array, 4, 4);
 
-// PRODUCT'S DATA  AND DECLARATION GLOBAL VARIABLE 
+// PRODUCT'S DATA  AND DECLARE GLOBAL VARIABLE 
 const char*                 product_array[10]={"Beef", "Pork", "Fish", "Chicken", "Banana", "Tomato", "Egg", "Milk", "Pen", "Book"};
 unsigned long int           price_array[10]={};
 bool                        kind_array[10]={};
@@ -128,7 +128,8 @@ unsigned long int read_eeprom_3byte(int min_addr)
 void lcd_money_right_alignment(int lcd_col, int lcd_row, long int  number)
 {  
     if(number < 1000000000)
-    { int size = 1;
+    { 
+        int size = 1;
         long int diff = 1, number_copy = number;
         for(number_copy; number_copy > 9; number_copy /= 10) 
         {
